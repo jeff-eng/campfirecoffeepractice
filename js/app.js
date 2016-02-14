@@ -7,6 +7,43 @@ var pikePlace = {
   avgHourlyCups: 1.2,
   avgHourlyLbs: 3.7,
   totalDailyLbs: 0,
+  hourlyCustomersArray: [],
+  hourlyCupsArray: [],
+  hourlyTogoLbsArray: [],
+  lbsFromCupsArray: [],
+  totalHourlyLbsArray: [],
+
+  hourlyCustomers: function () {
+    for(var i = 0; i < hours.length; i++) {
+      this.hourlyCustomersArray.push(Math.floor(Math.random() * (this.maxCustomers - this.minCustomers + 1)) + this.minCustomers);
+    }
+  },
+  hourlyCups: function() {
+    for(var i = 0; i < hours.length; i++) {
+      this.hourlyCupsArray.push(this.hourlyCustomersArray[i] * this.avgHourlyCups);
+    }
+  },
+  hourlyTogoLbs: function() {
+    for(var i = 0; i < hours.length; i++) {
+      this.hourlyTogoLbsArray.push(this.hourlyCustomersArray[i] * this.avgHourlyLbs);
+    }
+  },
+  lbsFromCups: function() {
+    for (var i = 0; i < hours.length; i++) {
+      this.lbsFromCupsArray.push(this.hourlyCupsArray[i] / 20);
+    }
+  },
+  calcTotalHourlyLbs: function() {
+    for (var i = 0; i < hours.length; i++) {
+      this.totalHourlyLbsArray.push(this.hourlyTogoLbsArray[i] + this.lbsFromCupsArray[i]);
+    }
+  },
+  calcTotalDailyLbs: function() {
+    for (var i = 0; i < hours.length; i++) {
+      this.totalDailyLbs += this.totalHourlyLbsArray[i];
+    }
+    return this.totalDailyLbs;
+  }
 };
 
 var capitolHill = {
@@ -16,6 +53,43 @@ var capitolHill = {
   avgHourlyCups: 3.2,
   avgHourlyLbs: 0.4,
   totalDailyLbs: 0,
+  hourlyCustomersArray: [],
+  hourlyCupsArray: [],
+  hourlyTogoLbsArray: [],
+  lbsFromCupsArray: [],
+  totalHourlyLbsArray: [],
+
+  hourlyCustomers: function () {
+    for(var i = 0; i < hours.length; i++) {
+      this.hourlyCustomersArray.push(Math.floor(Math.random() * (this.maxCustomers - this.minCustomers + 1)) + this.minCustomers);
+    }
+  },
+  hourlyCups: function() {
+    for(var i = 0; i < hours.length; i++) {
+      this.hourlyCupsArray.push(this.hourlyCustomersArray[i] * this.avgHourlyCups);
+    }
+  },
+  hourlyTogoLbs: function() {
+    for(var i = 0; i < hours.length; i++) {
+      this.hourlyTogoLbsArray.push(this.hourlyCustomersArray[i] * this.avgHourlyLbs);
+    }
+  },
+  lbsFromCups: function() {
+    for (var i = 0; i < hours.length; i++) {
+      this.lbsFromCupsArray.push(this.hourlyCupsArray[i] / 20);
+    }
+  },
+  calcTotalHourlyLbs: function() {
+    for (var i = 0; i < hours.length; i++) {
+      this.totalHourlyLbsArray.push(this.hourlyTogoLbsArray[i] + this.lbsFromCupsArray[i]);
+    }
+  },
+  calcTotalDailyLbs: function() {
+    for (var i = 0; i < hours.length; i++) {
+      this.totalDailyLbs += this.totalHourlyLbsArray[i];
+    }
+    return this.totalDailyLbs;
+  }
 };
 
 var seaPublicLibrary = {
@@ -25,6 +99,43 @@ var seaPublicLibrary = {
   avgHourlyCups: 2.6,
   avgHourlyLbs: 30.2,
   totalDailyLbs: 0,
+  hourlyCustomersArray: [],
+  hourlyCupsArray: [],
+  hourlyTogoLbsArray: [],
+  lbsFromCupsArray: [],
+  totalHourlyLbsArray: [],
+
+  hourlyCustomers: function () {
+    for(var i = 0; i < hours.length; i++) {
+      this.hourlyCustomersArray.push(Math.floor(Math.random() * (this.maxCustomers - this.minCustomers + 1)) + this.minCustomers);
+    }
+  },
+  hourlyCups: function() {
+    for(var i = 0; i < hours.length; i++) {
+      this.hourlyCupsArray.push(this.hourlyCustomersArray[i] * this.avgHourlyCups);
+    }
+  },
+  hourlyTogoLbs: function() {
+    for(var i = 0; i < hours.length; i++) {
+      this.hourlyTogoLbsArray.push(this.hourlyCustomersArray[i] * this.avgHourlyLbs);
+    }
+  },
+  lbsFromCups: function() {
+    for (var i = 0; i < hours.length; i++) {
+      this.lbsFromCupsArray.push(this.hourlyCupsArray[i] / 20);
+    }
+  },
+  calcTotalHourlyLbs: function() {
+    for (var i = 0; i < hours.length; i++) {
+      this.totalHourlyLbsArray.push(this.hourlyTogoLbsArray[i] + this.lbsFromCupsArray[i]);
+    }
+  },
+  calcTotalDailyLbs: function() {
+    for (var i = 0; i < hours.length; i++) {
+      this.totalDailyLbs += this.totalHourlyLbsArray[i];
+    }
+    return this.totalDailyLbs;
+  }
 };
 
 var southLakeUnion = {
@@ -34,6 +145,43 @@ var southLakeUnion = {
   avgHourlyCups: 1.3,
   avgHourlyLbs: 3.7,
   totalDailyLbs: 0,
+  hourlyCustomersArray: [],
+  hourlyCupsArray: [],
+  hourlyTogoLbsArray: [],
+  lbsFromCupsArray: [],
+  totalHourlyLbsArray: [],
+
+  hourlyCustomers: function () {
+    for(var i = 0; i < hours.length; i++) {
+      this.hourlyCustomersArray.push(Math.floor(Math.random() * (this.maxCustomers - this.minCustomers + 1)) + this.minCustomers);
+    }
+  },
+  hourlyCups: function() {
+    for(var i = 0; i < hours.length; i++) {
+      this.hourlyCupsArray.push(this.hourlyCustomersArray[i] * this.avgHourlyCups);
+    }
+  },
+  hourlyTogoLbs: function() {
+    for(var i = 0; i < hours.length; i++) {
+      this.hourlyTogoLbsArray.push(this.hourlyCustomersArray[i] * this.avgHourlyLbs);
+    }
+  },
+  lbsFromCups: function() {
+    for (var i = 0; i < hours.length; i++) {
+      this.lbsFromCupsArray.push(this.hourlyCupsArray[i] / 20);
+    }
+  },
+  calcTotalHourlyLbs: function() {
+    for (var i = 0; i < hours.length; i++) {
+      this.totalHourlyLbsArray.push(this.hourlyTogoLbsArray[i] + this.lbsFromCupsArray[i]);
+    }
+  },
+  calcTotalDailyLbs: function() {
+    for (var i = 0; i < hours.length; i++) {
+      this.totalDailyLbs += this.totalHourlyLbsArray[i];
+    }
+    return this.totalDailyLbs;
+  }
 };
 
 var seatacAirport = {
@@ -43,6 +191,43 @@ var seatacAirport = {
   avgHourlyCups: 1.1,
   avgHourlyLbs: 2.7,
   totalDailyLbs: 0,
+  hourlyCustomersArray: [],
+  hourlyCupsArray: [],
+  hourlyTogoLbsArray: [],
+  lbsFromCupsArray: [],
+  totalHourlyLbsArray: [],
+
+  hourlyCustomers: function () {
+    for(var i = 0; i < hours.length; i++) {
+      this.hourlyCustomersArray.push(Math.floor(Math.random() * (this.maxCustomers - this.minCustomers + 1)) + this.minCustomers);
+    }
+  },
+  hourlyCups: function() {
+    for(var i = 0; i < hours.length; i++) {
+      this.hourlyCupsArray.push(this.hourlyCustomersArray[i] * this.avgHourlyCups);
+    }
+  },
+  hourlyTogoLbs: function() {
+    for(var i = 0; i < hours.length; i++) {
+      this.hourlyTogoLbsArray.push(this.hourlyCustomersArray[i] * this.avgHourlyLbs);
+    }
+  },
+  lbsFromCups: function() {
+    for (var i = 0; i < hours.length; i++) {
+      this.lbsFromCupsArray.push(this.hourlyCupsArray[i] / 20);
+    }
+  },
+  calcTotalHourlyLbs: function() {
+    for (var i = 0; i < hours.length; i++) {
+      this.totalHourlyLbsArray.push(this.hourlyTogoLbsArray[i] + this.lbsFromCupsArray[i]);
+    }
+  },
+  calcTotalDailyLbs: function() {
+    for (var i = 0; i < hours.length; i++) {
+      this.totalDailyLbs += this.totalHourlyLbsArray[i];
+    }
+    return this.totalDailyLbs;
+  }
 };
 
 var websiteSales = {
@@ -57,6 +242,7 @@ var websiteSales = {
   hourlyTogoLbsArray: [],
   lbsFromCupsArray: [],
   totalHourlyLbsArray: [],
+
   hourlyCustomers: function() {
     for(var i = 0; i < hours.length; i++) {
       this.hourlyCustomersArray.push(Math.floor(Math.random() * (this.maxCustomers - this.minCustomers + 1)) + this.minCustomers);
@@ -86,5 +272,6 @@ var websiteSales = {
     for (var i = 0; i < hours.length; i++) {
       this.totalDailyLbs += this.totalHourlyLbsArray[i];
     }
+    return this.totalDailyLbs;
   }
 }
