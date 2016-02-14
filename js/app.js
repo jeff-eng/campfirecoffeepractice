@@ -4,47 +4,87 @@ var pikePlace = {
   name: 'Pike Place Market',
   minCustomers: 14,
   maxCustomers: 55,
-  avgCups: 1.2,
-  avgLbs: 3.7,
-
+  avgHourlyCups: 1.2,
+  avgHourlyLbs: 3.7,
+  totalDailyLbs: 0,
 };
 
 var capitolHill = {
   name: 'Capitol Hill',
   minCustomers: 32,
   maxCustomers: 48,
-  avgCups: 3.2,
-  avgLbs: 0.4,
+  avgHourlyCups: 3.2,
+  avgHourlyLbs: 0.4,
+  totalDailyLbs: 0,
 };
 
 var seaPublicLibrary = {
   name: 'Seattle Public Library',
   minCustomers: 49,
   maxCustomers: 75,
-  avgCups: 2.6,
-  avgLbs: 30.2,
+  avgHourlyCups: 2.6,
+  avgHourlyLbs: 30.2,
+  totalDailyLbs: 0,
 };
 
 var southLakeUnion = {
   name: 'South Lake Union',
   minCustomers: 38,
   maxCustomers: 88,
-  avgCups: 1.3,
-  avgLbs: 3.7,
+  avgHourlyCups: 1.3,
+  avgHourlyLbs: 3.7,
+  totalDailyLbs: 0,
 };
 
 var seatacAirport = {
   name: 'Sea-Tac Airport',
   minCustomers: 68,
   maxCustomers: 124,
-  avgCups: 1.1,
-  avgLbs: 2.7,
+  avgHourlyCups: 1.1,
+  avgHourlyLbs: 2.7,
+  totalDailyLbs: 0,
 };
 
 var websiteSales = {
   name: 'Website Sales',
   minCustomers: 3,
   maxCustomers: 6,
-  avgCups: 0.0,
-  avgLbs: 6.7,
-};
+  avgHourlyCups: 0,
+  avgHourlyLbs: 6.7,
+  totalDailyLbs: 0,
+  hourlyCustomersArray: [],
+  hourlyCupsArray: [],
+  hourlyTogoLbsArray: [],
+  lbsFromCupsArray: [],
+  totalHourlyLbsArray: [],
+  hourlyCustomers: function() {
+    for(var i = 0; i < hours.length; i++) {
+      this.hourlyCustomersArray.push(Math.floor(Math.random() * (this.maxCustomers - this.minCustomers + 1)) + this.minCustomers);
+    }
+  },
+  hourlyCups: function() {
+    for(var i = 0; i < hours.length; i++) {
+      this.hourlyCupsArray.push(this.hourlyCustomersArray[i] * this.avgHourlyCups);
+    }
+  },
+  hourlyTogoLbs: function() {
+    for(var i = 0; i < hours.length; i++) {
+      this.hourlyTogoLbsArray.push(this.hourlyCustomersArray[i] * this.avgHourlyLbs);
+    }
+  },
+  lbsFromCups: function() {
+    for (var i = 0; i < hours.length; i++) {
+      this.lbsFromCupsArray.push(this.hourlyCupsArray[i] / 20);
+    }
+  },
+  calcTotalHourlyLbs: function() {
+    for (var i = 0; i < hours.length; i++) {
+      this.totalHourlyLbsArray.push(this.hourlyTogoLbsArray[i] + this.lbsFromCupsArray[i]);
+    }
+  },
+  calcTotalDailyLbs: function() {
+    for (var i = 0; i < hours.length; i++) {
+      this.totalDailyLbs += this.totalHourlyLbsArray[i];
+    }
+  }
+}
