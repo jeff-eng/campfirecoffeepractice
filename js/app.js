@@ -43,6 +43,25 @@ var pikePlace = {
       this.totalDailyLbs += this.totalHourlyLbsArray[i];
     }
     return this.totalDailyLbs;
+  },
+  renderData: function() {
+    this.hourlyCustomers();
+    this.hourlyCups();
+    this.hourlyTogoLbs();
+    this.lbsFromCups();
+    this.calcTotalHourlyLbs();
+    this.calcTotalDailyLbs();
+
+    var ulEl = document.createElement('ul');
+    var location = document.createTextNode(this.name);
+    ulEl.appendChild(location);
+    for (var i = 0; i < hours.length; i++) {
+      var liEl = document.createElement('li');
+      var newText = document.createTextNode(hours[i] + ': ' + this.totalHourlyLbsArray[i].toFixed(1) + ' lbs [' + this.hourlyCustomersArray[i] + ' customers, ' + this.hourlyCupsArray[i].toFixed(1) + ' cups (' + this.lbsFromCupsArray[i].toFixed(1) + ' lbs), ' + this.hourlyTogoLbsArray[i].toFixed(1) + ' lbs to-go]');
+      liEl.appendChild(newText);
+      ulEl.appendChild(liEl);
+    }
+    document.body.appendChild(ulEl);
   }
 };
 
@@ -89,6 +108,25 @@ var capitolHill = {
       this.totalDailyLbs += this.totalHourlyLbsArray[i];
     }
     return this.totalDailyLbs;
+  },
+  renderData: function() {
+    this.hourlyCustomers();
+    this.hourlyCups();
+    this.hourlyTogoLbs();
+    this.lbsFromCups();
+    this.calcTotalHourlyLbs();
+    this.calcTotalDailyLbs();
+
+    var ulEl = document.createElement('ul');
+    var location = document.createTextNode(this.name);
+    ulEl.appendChild(location);
+    for(var i = 0; i < hours.length; i++) {
+      var liEl = document.createElement('li');
+      var newText = document.createTextNode(hours[i] + ': ' + this.totalHourlyLbsArray[i].toFixed(1) + ' lbs [' + this.hourlyCustomersArray[i] + ' customers, ' + this.hourlyCupsArray[i].toFixed(1) + ' cups (' + this.lbsFromCupsArray[i].toFixed(1) + ' lbs), ' + this.hourlyTogoLbsArray[i].toFixed(1) + ' lbs to-go]');
+      liEl.appendChild(newText);
+      ulEl.appendChild(liEl);
+    }
+    document.body.appendChild(ulEl);
   }
 };
 
@@ -135,6 +173,25 @@ var seaPublicLibrary = {
       this.totalDailyLbs += this.totalHourlyLbsArray[i];
     }
     return this.totalDailyLbs;
+  },
+  renderData: function() {
+    this.hourlyCustomers();
+    this.hourlyCups();
+    this.hourlyTogoLbs();
+    this.lbsFromCups();
+    this.calcTotalHourlyLbs();
+    this.calcTotalDailyLbs();
+
+    var ulEl = document.createElement('ul');
+    var location = document.createTextNode(this.name);
+    ulEl.appendChild(location);
+    for(var i = 0; i < hours.length; i++) {
+      var liEl = document.createElement('li');
+      var newText = document.createTextNode(hours[i] + ': ' + this.totalHourlyLbsArray[i].toFixed(1) + ' lbs [' + this.hourlyCustomersArray[i] + ' customers, ' + this.hourlyCupsArray[i].toFixed(1) + ' cups (' + this.lbsFromCupsArray[i].toFixed(1) + ' lbs), ' + this.hourlyTogoLbsArray[i].toFixed(1) + ' lbs to-go]');
+      liEl.appendChild(newText);
+      ulEl.appendChild(liEl);
+    }
+    document.body.appendChild(ulEl);
   }
 };
 
@@ -181,6 +238,25 @@ var southLakeUnion = {
       this.totalDailyLbs += this.totalHourlyLbsArray[i];
     }
     return this.totalDailyLbs;
+  },
+  renderData: function() {
+    this.hourlyCustomers();
+    this.hourlyCups();
+    this.hourlyTogoLbs();
+    this.lbsFromCups();
+    this.calcTotalHourlyLbs();
+    this.calcTotalDailyLbs();
+
+    var ulEl = document.createElement('ul');
+    var location = document.createTextNode(this.name);
+    ulEl.appendChild(location);
+    for(var i = 0; i < hours.length; i++) {
+      var liEl = document.createElement('li');
+      var newText = document.createTextNode(hours[i] + ': ' + this.totalHourlyLbsArray[i].toFixed(1) + ' lbs [' + this.hourlyCustomersArray[i] + ' customers, ' + this.hourlyCupsArray[i].toFixed(1) + ' cups (' + this.lbsFromCupsArray[i].toFixed(1) + ' lbs), ' + this.hourlyTogoLbsArray[i].toFixed(1) + ' lbs to-go]');
+      liEl.appendChild(newText);
+      ulEl.appendChild(liEl);
+    }
+    document.body.appendChild(ulEl);
   }
 };
 
@@ -227,6 +303,25 @@ var seatacAirport = {
       this.totalDailyLbs += this.totalHourlyLbsArray[i];
     }
     return this.totalDailyLbs;
+  },
+  renderData: function() {
+    this.hourlyCustomers();
+    this.hourlyCups();
+    this.hourlyTogoLbs();
+    this.lbsFromCups();
+    this.calcTotalHourlyLbs();
+    this.calcTotalDailyLbs();
+
+    var ulEl = document.createElement('ul');
+    var location = document.createTextNode(this.name);
+    ulEl.appendChild(location);
+    for(var i = 0; i < hours.length; i++) {
+      var liEl = document.createElement('li');
+      var newText = document.createTextNode(hours[i] + ': ' + this.totalHourlyLbsArray[i].toFixed(1) + ' lbs [' + this.hourlyCustomersArray[i] + ' customers, ' + this.hourlyCupsArray[i].toFixed(1) + ' cups (' + this.lbsFromCupsArray[i].toFixed(1) + ' lbs), ' + this.hourlyTogoLbsArray[i].toFixed(1) + ' lbs to-go' + ']');
+      ulEl.appendChild(liEl);
+      liEl.appendChild(newText);
+    }
+    document.body.appendChild(ulEl);
   }
 };
 
@@ -273,5 +368,31 @@ var websiteSales = {
       this.totalDailyLbs += this.totalHourlyLbsArray[i];
     }
     return this.totalDailyLbs;
+  },
+  renderData: function() {
+    this.hourlyCustomers();
+    this.hourlyCups();
+    this.hourlyTogoLbs();
+    this.lbsFromCups();
+    this.calcTotalHourlyLbs();
+    this.calcTotalDailyLbs();
+
+    var ulEl = document.createElement('ul');
+    var location = document.createTextNode(this.name);
+    ulEl.appendChild(location);
+    for (var i = 0; i < hours.length; i++) {
+      var liEl = document.createElement('li');
+      var newText = document.createTextNode(hours[i] + ': ' + this.totalHourlyLbsArray[i].toFixed(1) + ' lbs [' + this.hourlyCustomersArray[i] + ' customers, ' + this.hourlyCupsArray[i] + ' cups (' + this.lbsFromCupsArray[i].toFixed(1) + ' lbs), ' + this.hourlyTogoLbsArray[i].toFixed(1) + ' lbs to-go]');
+      ulEl.appendChild(liEl);
+      liEl.appendChild(newText);
+    }
+    document.body.appendChild(ulEl);
   }
-}
+};
+
+pikePlace.renderData();
+capitolHill.renderData();
+seaPublicLibrary.renderData();
+southLakeUnion.renderData();
+seatacAirport.renderData();
+websiteSales.renderData();
