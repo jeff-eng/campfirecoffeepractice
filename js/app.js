@@ -62,6 +62,9 @@ var pikePlace = {
       ulEl.appendChild(liEl);
     }
     document.body.appendChild(ulEl);
+    var displayTotalLbs = document.createElement('li');
+    displayTotalLbs.textContent = 'Total daily lbs at this location: ' + this.totalDailyLbs.toFixed(1) + ' lbs';
+    ulEl.appendChild(displayTotalLbs);
   }
 };
 
@@ -127,6 +130,9 @@ var capitolHill = {
       ulEl.appendChild(liEl);
     }
     document.body.appendChild(ulEl);
+    var displayTotalLbs = document.createElement('li');
+    displayTotalLbs.textContent = 'Total daily lbs at this location: ' + this.totalDailyLbs.toFixed(1) + ' lbs';
+    ulEl.appendChild(displayTotalLbs);
   }
 };
 
@@ -192,6 +198,9 @@ var seaPublicLibrary = {
       ulEl.appendChild(liEl);
     }
     document.body.appendChild(ulEl);
+    var displayTotalLbs = document.createElement('li');
+    displayTotalLbs.textContent = 'Total daily lbs at this location: ' + this.totalDailyLbs.toFixed(1) + ' lbs';
+    ulEl.appendChild(displayTotalLbs);
   }
 };
 
@@ -257,6 +266,9 @@ var southLakeUnion = {
       ulEl.appendChild(liEl);
     }
     document.body.appendChild(ulEl);
+    var displayTotalLbs = document.createElement('li');
+    displayTotalLbs.textContent = 'Total daily lbs at this location: ' + this.totalDailyLbs.toFixed(1) + ' lbs';
+    ulEl.appendChild(displayTotalLbs);
   }
 };
 
@@ -322,6 +334,9 @@ var seatacAirport = {
       liEl.appendChild(newText);
     }
     document.body.appendChild(ulEl);
+    var displayTotalLbs = document.createElement('li');
+    displayTotalLbs.textContent = 'Total daily lbs at this location: ' + this.totalDailyLbs.toFixed(1) + ' lbs';
+    ulEl.appendChild(displayTotalLbs);
   }
 };
 
@@ -387,6 +402,9 @@ var websiteSales = {
       liEl.appendChild(newText);
     }
     document.body.appendChild(ulEl);
+    var displayTotalLbs = document.createElement('li');
+    displayTotalLbs.textContent = 'Total daily lbs at this location: ' + this.totalDailyLbs.toFixed(1) + ' lbs';
+    ulEl.appendChild(displayTotalLbs);
   }
 };
 
