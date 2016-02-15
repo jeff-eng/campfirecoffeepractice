@@ -141,7 +141,7 @@ var seaPublicLibrary = {
   minCustomers: 49,
   maxCustomers: 75,
   avgHourlyCups: 2.6,
-  avgHourlyLbs: 30.2,
+  avgHourlyLbs: 0.7,
   totalDailyLbs: 0,
   hourlyCustomersArray: [],
   hourlyCupsArray: [],
