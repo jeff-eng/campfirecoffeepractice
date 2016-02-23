@@ -1,7 +1,8 @@
 var hours = ['06:00', '07:00', '08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00'];
 
-//object constructor
-function Kiosk(minCustomers, maxCustomers, avgHourlyCups, avgHourlyLbs) {
+//Object Constructor
+function Kiosk(name, minCustomers, maxCustomers, avgHourlyCups, avgHourlyLbs) {
+  this.name = name;
   this.minCustomers = minCustomers;
   this.maxCustomers = maxCustomers;
   this.avgHourlyCups = avgHourlyCups;
@@ -16,7 +17,7 @@ function Kiosk(minCustomers, maxCustomers, avgHourlyCups, avgHourlyLbs) {
 
 Kiosk.prototype.generateData = function() {
   for(var i = 0; i < hours.length; i++) {
-    this.hourlyCustomersArray[i].push(Math.floor(Math.random() * (this.maxCustomers - this.minCustomers + 1)) + this.minCustomers);
+    this.hourlyCustomersArray.push(Math.floor(Math.random() * (this.maxCustomers - this.minCustomers + 1)) + this.minCustomers);
     this.hourlyCupsArray.push(this.hourlyCustomersArray[i] * this.avgHourlyCups);
     this.hourlyTogoLbsArray.push(this.hourlyCustomersArray[i] * this.avgHourlyLbs);
     this.lbsFromCupsArray.push(this.hourlyCupsArray[i] / 20);
@@ -27,23 +28,57 @@ Kiosk.prototype.generateData = function() {
 };
 
 Kiosk.prototype.renderData = function() {
+  this.generateData(); // Calls the generateData method for the object when the renderData method is called, for example pikePlace.renderData();
 //write the instructions needed to render the table to the page
 //1)Create table element
 //2)Create table row element
 //3)Create table data element
 //4)Give the table data element content
-//5)Append table data element to the table row element
-//6)Append table row element to the table element
-//7)Append table element to the document
+  var tableEl = document.createElement('table');
+  var tableRow = document.createElement('tr');
+  var blankTDEl = document.createElement('td');
+  blankTDEl.textContent = this.name;
+  tableRow.appendChild(blankTDEl);
+  for(var i = 0; i < hours.length; i++) {
+    var tableData = document.createElement('td');
+    tableData.textContent = hours[i];
+    //5)Append table data element to the table row element
+    tableRow.appendChild(tableData);
+    //6)Append table row element to the table element
+    tableEl.appendChild(tableRow);
+  }
+  //7)Append table element to the document
+  document.body.appendChild(tableEl);
 };
 
 //Create instances
-var pikePlace = new Kiosk(14, 55, 1.2, 3.7);
-var capitolHill = new Kiosk(32, 48, 3.2, 0.4);
-var seaPublicLibrary = new Kiosk(49, 75, 2.6, 0.7);
-var southLakeUnion = new Kiosk(38, 88, 1.3, 3.7);
-var seatacAirport = new Kiosk(68, 124, 1.1, 2.7);
-var websiteSales = new Kiosk(3, 6, 0, 6.7);
+var pikePlace = new Kiosk('Pike Place Market', 14, 55, 1.2, 3.7);
+var capitolHill = new Kiosk('Capitol Hill', 32, 48, 3.2, 0.4);
+var seaPublicLibrary = new Kiosk('Seattle Public Library', 49, 75, 2.6, 0.7);
+var southLakeUnion = new Kiosk('South Lake Union', 38, 88, 1.3, 3.7);
+var seatacAirport = new Kiosk('Sea-Tac Airport', 68, 124, 1.1, 2.7);
+var websiteSales = new Kiosk('Website Sales', 3, 6, 0, 6.7);
+
+//Function to create hourly customer data on page
+function renderHourlyCust() {
+
+}
+//Function to create hourly cups data on page
+function renderHourlyCups() {
+
+}
+//Function to create hourly to-go lbs on page
+function renderHourlyTogoLbs() {
+
+}
+//Function to create hourly lbs from cups on page
+function renderLbsFromCups() {
+
+}
+//Function to create total hourly lbs on page
+function renderTotalHourlyLbs() {
+  
+}
 
 // var pikePlace = {
 //   name: 'Pike Place Market',
@@ -113,7 +148,7 @@ var websiteSales = new Kiosk(3, 6, 0, 6.7);
 //   }
 // };
 
-// pikePlace.renderData();
+pikePlace.renderData();
 // capitolHill.renderData();
 // seaPublicLibrary.renderData();
 // southLakeUnion.renderData();
