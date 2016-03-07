@@ -1,8 +1,8 @@
 var hours = ['06:00', '07:00', '08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00'];
 
 //Object Constructor
-function Kiosk(name, minCustomers, maxCustomers, avgHourlyCups, avgHourlyLbs) {
-  this.name = name;
+function Kiosk(locationName, minCustomers, maxCustomers, avgHourlyCups, avgHourlyLbs) {
+  this.locationName = locationName;
   this.minCustomers = minCustomers;
   this.maxCustomers = maxCustomers;
   this.avgHourlyCups = avgHourlyCups;
@@ -27,29 +27,46 @@ Kiosk.prototype.generateData = function() {
   return this.totalDailyLbs;
 };
 
-Kiosk.prototype.renderData = function() {
-  this.generateData(); // Calls the generateData method for the object when the renderData method is called, for example pikePlace.renderData();
-//write the instructions needed to render the table to the page
-//1)Create table element
-//2)Create table row element
-//3)Create table data element
-//4)Give the table data element content
+function renderData(location) {
+  location.generateData(); // Calls the generateData method for the object when the renderData method is called, for example pikePlace.renderData();
+
   var tableEl = document.createElement('table');
-  var tableRow = document.createElement('tr');
-  var blankTDEl = document.createElement('td');
-  blankTDEl.textContent = this.name;
-  tableRow.appendChild(blankTDEl);
-  for(var i = 0; i < hours.length; i++) {
-    var tableData = document.createElement('td');
-    tableData.textContent = hours[i];
-    //5)Append table data element to the table row element
-    tableRow.appendChild(tableData);
-    //6)Append table row element to the table element
-    tableEl.appendChild(tableRow);
-  }
-  //7)Append table element to the document
   document.body.appendChild(tableEl);
-};
+  var tableRow = document.createElement('tr');
+  tableEl.appendChild(tableRow);
+
+  var locationTHEl = document.createElement('th');
+  locationTHEl.textContent = location.locationName;
+  tableRow.appendChild(locationTHEl);
+  for(var i = 0; i < hours.length; i++) {
+    var hoursHeader = document.createElement('th');
+    hoursHeader.textContent = hours[i];
+    tableRow.appendChild(hoursHeader);
+  }
+  tableEl.appendChild(tableRow);
+
+  var arrayOfLabels = ['Customers', 'Cups', 'To-go Lbs', 'Lbs from Cups'];
+  createTableRow(      );
+
+  var newTableRow = document.createElement('tr');
+  var customersLabel = document.createElement('th');
+  customersLabel.textContent = 'Customers';
+  newTableRow.appendChild(customersLabel);
+  for(var j = 0; j < hours.length; j++) {
+    var customerData = document.createElement('td');
+    customerData.textContent = location.hourlyCustomersArray[i];
+    tableRow.appendChild(customerData);
+  }
+}
+//Generic function to create a table row with table head cell and table data
+function createTableRow() {
+  var newTableRow = document.createElement('tr');
+  var newLabelHeader = document.createElement('th');
+  newLabelHeader.textContent = labelHeaderName;
+  newTableRow.appendChild(newLabelHeader);
+  document.body.appendChild(newTableRow);
+  return newTableRow;
+}
 
 //Create instances
 var pikePlace = new Kiosk('Pike Place Market', 14, 55, 1.2, 3.7);
@@ -59,26 +76,7 @@ var southLakeUnion = new Kiosk('South Lake Union', 38, 88, 1.3, 3.7);
 var seatacAirport = new Kiosk('Sea-Tac Airport', 68, 124, 1.1, 2.7);
 var websiteSales = new Kiosk('Website Sales', 3, 6, 0, 6.7);
 
-//Function to create hourly customer data on page
-function renderHourlyCust() {
-
-}
-//Function to create hourly cups data on page
-function renderHourlyCups() {
-
-}
-//Function to create hourly to-go lbs on page
-function renderHourlyTogoLbs() {
-
-}
-//Function to create hourly lbs from cups on page
-function renderLbsFromCups() {
-
-}
-//Function to create total hourly lbs on page
-function renderTotalHourlyLbs() {
-  
-}
+// var locations = [pikePlace, capitolHill, seaPublicLibrary, southLakeUnion, seatacAirport, websiteSales];
 
 // var pikePlace = {
 //   name: 'Pike Place Market',
@@ -147,8 +145,7 @@ function renderTotalHourlyLbs() {
 //     ulEl.appendChild(displayTotalLbs);
 //   }
 // };
-
-pikePlace.renderData();
+// pikePlace.renderData();
 // capitolHill.renderData();
 // seaPublicLibrary.renderData();
 // southLakeUnion.renderData();
